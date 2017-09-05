@@ -23,16 +23,15 @@ Array sortByQuick(Array array) {
      */
     if (array.size() <= 1) {
         return array;
-    }
-    else {
-        std::srand((unsigned)array.size());
+    } else {
+        std::srand((unsigned) array.size());
         std::int32_t q = array[rand() % array.size()];
 
         Array L;
         Array M;
         Array R;
 
-        for (auto elem: array) {
+        for (auto &elem: array) {
             if (elem < q)
                 L.push_back(elem);
             else if (elem > q)
