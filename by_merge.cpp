@@ -34,8 +34,7 @@ Array sortByMerge(Array array) {
             if (leftHalf[i] < rightHalf[j]) {
                 array[k] = leftHalf[i];
                 ++i;
-            }
-            else {
+            } else {
                 array[k] = rightHalf[j];
                 ++j;
             }
