@@ -11,5 +11,5 @@ set(SOURCE_FILES
         by_heap.cpp
         by_inclusion.cpp
         by_merge.cpp
-        by_quick.cpp)
+        by_quick.cpp by_radix_lsd.cpp by_timsort.cpp)
 add_executable(sorting_algorithms_cpp ${SOURCE_FILES})
