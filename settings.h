@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <functional>
 
+#define ARRAY_SIZE 2000U
+
 typedef std::vector<std::int32_t> Array;
 typedef std::vector<Array> Matrix;
 typedef std::pair<std::string, std::function<Array(Array)>> FuncPair;
