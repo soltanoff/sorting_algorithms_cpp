@@ -45,7 +45,7 @@ Array sortByRadixLsd(Array array) {  // , std::int32_t base) {
 
 std::int32_t _getDigit(std::int32_t num, std::int32_t base, std::int32_t digit_num) {
     // берем выбранную цифру
-    return (std::int32_t) pow((std::int32_t) num / base, digit_num) % base;
+    return (std::int32_t) ((unsigned long long int) std::pow((std::uint64_t)(num / base), digit_num) % base);
 }
 
 
@@ -79,7 +79,7 @@ std::int32_t _maxAbs(const Array &a_list) {
     return *std::max_element(
             a_list.begin(),
             a_list.end(),
-            [](std::int32_t a, std::int32_t b) { return abs(a) < abs(b); }
+            [](std::int32_t a, std::int32_t b) { return abs(a) <= abs(b); }
     );
 }
 
