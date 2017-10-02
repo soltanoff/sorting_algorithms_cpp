@@ -20,11 +20,14 @@ FuncVector algorithms{
 void start_test(const Array &array, const FuncVector &algs = algorithms);
 
 
-// TODO: need to test all sorting functions
 // TODO: change a timer logic
 int main() {
     Array array;
 
+    for (std::uint32_t i = 0; i < ARRAY_SIZE; i++)
+        array.push_back(rand() % (2 * ARRAY_SIZE));
+
+    // Array a = sortByRadixLsd(array);
     std::cout << ">>> RANDOM:" << std::endl;
     start_test(array);
 
@@ -35,17 +38,16 @@ void start_test(const Array &array, const FuncVector &algs) {
     std::cout << "-= Start the test: array size of " << array.size() << " elements =-";
 
     for (auto &f: algs) {
-        // FIXME: wtf?! Change this std::clock
         std::clock_t c_start = std::clock();
         auto t_start = std::chrono::high_resolution_clock::now();
 
-        f.second(array);
+        Array a = f.second(array);
 
         auto t_end = std::chrono::high_resolution_clock::now();
         std::clock_t c_end = std::clock();
 
         std::cout << std::endl << "Function: " << f.first << std::endl
-                  << std::fixed << std::setprecision(2) << "CPU time used: "
+                  << std::fixed << std::setprecision(4) << "CPU time used: "
                   << 1000.0 * (c_end - c_start) / CLOCKS_PER_SEC << " ms\n"
                   << "Wall clock time passed: "
                   << std::chrono::duration<double, std::milli>(t_end - t_start).count()
